@@ -74,7 +74,6 @@ PacketHandler.prototype.handshake_onCompleted = function (protocol, key) {
     this.socket.sendPacket(new Packet.ClearAll());
     this.socket.sendPacket(new Packet.SetBorder(this.socket.playerTracker, this.gameServer.border, this.gameServer.config.serverGamemode, "MultiOgar " + pjson.version));
     // Send welcome message
-    this.gameServer.sendChatMessage(null, this.socket.playerTracker, "MultiOgar " + pjson.version);
     if (this.gameServer.config.serverWelcome1)
         this.gameServer.sendChatMessage(null, this.socket.playerTracker, this.gameServer.config.serverWelcome1);
     if (this.gameServer.config.serverWelcome2)
