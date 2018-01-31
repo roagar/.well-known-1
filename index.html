@@ -4,7 +4,7 @@
 <form action="/" method="post" enctype="multipart/form-data">
 <meta http-equiv='X-UA-Compatible' content='IE=edge'>
 <meta name="viewport" content="width=1100">
-<meta name="description" content="안내드립니다. 본섭화는 현재 점검중입니다.">
+<meta name="description" content="본섭화모드에 오신것을 환영합니다">
 <meta name="keywords" content="아가리오, 아쿠아파티, 한국서버, 아가리오핵, 아갈, 코갈, 아갈크, 아코">
 <meta name="robots" content="index, follow">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -50,7 +50,7 @@
 <center>
 <select size=8 class="form-control" style="overflow:hidden">
 <br clear="both"/>
-<option value="1" onclick='connect("ws://gk.agar.kr:2500")'>본섭화 모드</option>
+<option value="1" onclick='connect("ws://gk.agar.kr:2500")'>본섭화 모드(점검중)</option>
 <option value="2" onclick='connect("ws://ho.agar.kr:2900")'>무한분열 모드</option> 
 </select>
 <h2 style="font-family:'Orbitron',sans-serif;font-size:13px;color:white" id="titleh">아쿠아파티 V2 바로가기</h2>
@@ -147,12 +147,12 @@
 <div class="form-group">
 <input class="form-control" id="nick" maxlength="15" placeholder="닉네임">
 <input class="form-control" id="skinUrl" placeholder="스킨 Url">
-  <h3>현재 본섭화는 점검중입니다 죄송합니다</h3>
+  <font color="white"><h3>현재 본섭화는 점검중입니다 <br>죄송합니다</h3></font>
 </div>
 <br>
 <div class="form-group">
 <a href="http://cafe.naver.com/aquaparty" target="_blank"style="background-color: orange" id="cafe-btn" class="btn btn-default btn-sm" role="button">카페 방문</a>
-<a href="https://goo.gl/forms/9wPabPJ3O9X79w702" target="_blank"style="background-color: orange" id="skin-btn" class="btn btn-default btn-sm" role="button">후원 하기</a>
+<a href="https://goo.gl/forms/9woePabPJ3O9X79w702" target="_blank"style="background-color: orange" id="skin-btn" class="btn btn-default btn-sm" role="button">후원 하기</a>
 <a href="http://ogario.ovh/skins/" target="_blank"style="background-color: orange" id="Sponsor-btn" class="btn btn-default btn-sm" role="button">SKin 갤러리</a>
 </div>
 <button class="shake-constant btn playButton btn-primary btn-needs-server" style="background-color:orange" id="playBtn" onclick="setNick(document.getElementById('nick').value);return false" type="submit">PLAY</button>
