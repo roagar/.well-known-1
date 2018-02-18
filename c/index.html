@@ -15,7 +15,7 @@
 <meta property="og:description" content="Aqua.Party(아쿠아 파티) agar.io(아가리오) 서버">
 <meta property="og:url" content="http://agar.kr">
 <link rel='canonical' href='http://agar.kr'>
-<title>Aqua.Party(아쿠아 파티) 무한 분열</title>
+<title>Aqua.Party(아쿠아 파티)</title>
 <canvas id="canvas"></canvas>
 <link href="./assets/css/Bootstrap.css" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
@@ -39,26 +39,36 @@
 <div id="main">
 <div id="serverPanel">
 <div>
-<h2 style="font-family:'Orbitron',sans-serif;font-size:30px;color:orange" id="titleh">서버 목록</h2>
+</br>
+<a href="http://cafe.naver.com/aquaparty" target="_blank" id="cafe-btn" class="btn btn-default btn-sm" role="button">카페 방문</a>
+<a href="https://goo.gl/forms/9wPabPJ3O9X79w702" target="_blank" id="cafe-btn" class="btn btn-default btn-sm" role="button">후원 하기</a>
+<a href="http://ogario.ovh/skins/" target="_blank" id="cafe-btn" class="btn btn-default btn-sm" role="button">SKIN 갤러리</a>
+<a href="http://agara.tk/c/" target="_blank" id="cafe-btn" class="btn btn-default btn-sm" role="button">무한분열 바로가기</a>
 <div>
-<h2 style="font-family:'Orbitron',sans-serif;font-size:13px;color:white" id="titleh">원하시는 서버모드를 선택해주세요.</h2>
 </div>
 </div>
-<hr>
+<center>
+</br>
+</center>
+</div>
+<div id="serv">
+<div>
+</br>
 <center>
 <select size=8 class="form-control" style="overflow:hidden">
 <br clear="both"/>
-<option value="1" onclick='connect("ws://ho.agar.kr:2900")'>무한분열 모드</option>
-<option value="2" onclick='connect("ws://gk.agar.kr:2500")'>본섭화 모드</option>
+<option value="1" onclick='connect("ws://gk.agar.kr:2500")'>본섭화 모드</option>
+<option value="2" onclick='connect("ws://ho.agar.kr:2900")'>무한분열 모드</option>
 </select>
-<h2 style="font-family:'Orbitron',sans-serif;font-size:13px;color:white" id="titleh">아쿠아파티 V2 바로가기</h2>
-<a href="http://agara.tk/b" target="_blank"style="background-color: orange" id="cafe-btn" class="btn btn-default btn-sm" role="button">아쿠아 V2</a>
+<div>
+</div>
+</div>
+<center>
 </br>
 </center>
 </div>
 <div class="form-group">
 <div style="float:left;margin-left:20px">
-<h2 style="font-family:'Orbitron',sans-serif;font-size:45px;color:orange" id="titleh">Aqua.Party</h2>
 </div>
 <br clear="both">
 <form role="form">
@@ -74,9 +84,9 @@
 </li>
 </ul>
 <div class="tab-content">
-<div role="tabpanel" class="tab-pane" id="home"></div>
+<div role="tabpanel" class="tab-pane " id="home"></div>
 <div role="tabpanel" class="tab-pane fade settings" id="settings">
-<hr>
+<br>
 <div class="container">
 <div class="settingsRow">
 <span id="animationTxt">분열감 : 120</span>
@@ -111,11 +121,6 @@
 <br>
 <label>
 <input type="checkbox" name="chathi" id="chathi"> 채팅 보이기 ON or OFF &nbsp</label>
-<br>
-<br>
-<a href="http://cafe.naver.com/diepiogame" target="_blank"style="background-color: orange" id="Sponsor-btn" class="btn btn-default btn-sm" role="button">아이오 게임즈</a>
-</br>
-<a href="http://veatyou.xyz/" target="_blank"style="background-color: orange" id="Sponsor-btn" class="btn btn-default btn-sm" role="button">비트유 끄투</a>
 <label>
 <br>
 <br>
@@ -123,6 +128,7 @@
 </div>
 </div>
 </div>
+<br>
 <div role="tabpanel" class="tab-pane fade" id="theming">
 <label>백그라운드 맵 색깔 </label>
 <br>
@@ -135,7 +141,6 @@
 <label>SECTOR Color[나도모름] &nbsp</label>
 <br>
 <input class="jscolor" id="sectorColour" value="313031">
-<br>
 </div>
 </div>
 </form>
@@ -146,12 +151,15 @@
 </div>
 <br>
 <div class="form-group">
-<a href="http://cafe.naver.com/aquaparty" target="_blank"style="background-color: orange" id="cafe-btn" class="btn btn-default btn-sm" role="button">카페 방문</a>
-<a href="https://goo.gl/forms/9wPabPJ3O9X79w702" target="_blank"style="background-color: orange" id="skin-btn" class="btn btn-default btn-sm" role="button">후원 하기</a>
-<a href="http://ogario.ovh/skins/" target="_blank"style="background-color: orange" id="Sponsor-btn" class="btn btn-default btn-sm" role="button">SKin 갤러리</a>
-</div>
-<button class="shake-constant btn playButton btn-primary btn-needs-server" style="background-color:orange" id="playBtn" onclick="setNick(document.getElementById('nick').value);return false" type="submit">PLAY</button>
-<button class="btn btn-warning watchButton btn-needs-server" style="background-color:orange" id="watchBtn" onclick="watch();return false">관전</button>
+<button type="submit" id="playBtn" onclick="setNick(document.getElementById('nick').value); return false;" class="shake-constant btn playButton btn-primary btn-needs-server">Play</button> 
+<button class="btn btn-warning watchButton btn-needs-server" id="watchBtn" onclick="watch();return false">관전</button>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <br clear="both">
 <br>
 </div>
