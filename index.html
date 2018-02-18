@@ -43,7 +43,7 @@
 <a href="http://cafe.naver.com/aquaparty" target="_blank" id="cafe-btn" class="btn btn-default btn-sm" role="button">카페 방문</a>
 <a href="https://goo.gl/forms/9wPabPJ3O9X79w702" target="_blank" id="cafe-btn" class="btn btn-default btn-sm" role="button">후원 하기</a>
 <a href="http://ogario.ovh/skins/" target="_blank" id="cafe-btn" class="btn btn-default btn-sm" role="button">SKIN 갤러리</a>
-<a href="http://agara.tk/c/" target="_blank" id="cafe-btn" class="btn btn-default btn-sm" role="button">무한분열 바로가기</a>
+<a href="http://ogario.ovh/skins/" target="_blank" id="cafe-btn" class="btn btn-default btn-sm" role="button">무한분열 바로가기</a>
 <div>
 </div>
 </div>
@@ -72,67 +72,63 @@
 </div>
 <br clear="both">
 <form role="form">
-  <ul class="nav nav-tabs nav-justified" role="tablist">
-                        <li role="presentation" class="active">
-                            <a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a>
-                        </li>
+<ul class="nav nav-tabs nav-justified" role="tablist">
+<li role="presentation" class="active">
+<a href="#home" aria-controls="home" role="tab" data-toggle="tab">Home</a>
+</li>
+<li role="presentation">
+<a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">설정</a>
+</li>
+<li role="presentation">
+<a href="#theming" aria-controls="theming" role="tab" data-toggle="tab">색깔</a>
+</li>
+</ul>
+<div class="tab-content">
+<div role="tabpanel" class="tab-pane " id="home"></div>
+<div role="tabpanel" class="tab-pane fade settings" id="settings">
+<br>
+<div class="container">
+<div class="settingsRow" style="overflow: auto; height: 150px;">
 
-                        <li role="presentation">
-                            <a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">설정</a>
-                        </li>
+<span id="animationTxt">분열감 : 120</span>
+<br>
+<br>
+<label></label>
+<input type="range" id="delay" min="10" max="300">
+</label>
+<br>
+<br>
+<div style="position:relative">
+<label>
+<input type="checkbox" name="sqMode" id="sqMode"> 사각형 모드 &nbsp</label>
+<br>
+<label>
+<input type="checkbox" name="sectors" id="sectors"> 백그라운드 맵 &nbsp</label>
+<br>
+<label>
+<input type="checkbox" name="cellalpha" id="cellalpha"> 세포투명화 ON or OFF &nbsp</label>
+<br>
+<label>
+<input type="checkbox" name="borders" id="borders"> MAP 테두리 ON or OFF &nbsp</label>
+<br>
+<label>
+<input type="checkbox" name="food" id="food"> 먹이 보이기 On or OFF &nbsp</label>
+<br>
+<label>
+<input type="checkbox" name="name" id="name"> 이름 보이기 ON or OFF &nbsp</label>
+<br>
+<label>
+<input type="checkbox" name="mass" id="mass"> 메스 보이기 ON or OFF &nbsp</label>
+<br>
+<label>
+<input type="checkbox" name="chathi" id="chathi"> 채팅 보이기 ON or OFF &nbsp</label>
+<label>
 
-                        <li role="presentation">
-                            <a href="#theming" aria-controls="theming" role="tab" data-toggle="tab">색깔</a>
-                        </li>
-                    </ul>
-                    <div class="tab-content">
-                        <div role="tabpanel" class="tab-pane" id="home"></div>
-                        <div role="tabpanel" class="tab-pane fade settings" id="settings">
-                            <div class="container">
-                              </br>
-                                <div class="settingsRow">
-                                    <span id="animationTxt">분열감 : 120</span>
-                                    <br>
-                                    <br>
-                                    <label></label>
-                                    <input type="range" id="delay" min="10" max="300">
-                                    </label>
-                                    <br>
-                                    <br>
-                                    <div style="position: relative;">
-                                        <label>
-                                            <input type="checkbox" name="sqMode" id="sqMode"> 사각형 모드  &nbsp</label>
-                                            <br>
-                                        <label>
-                                            <input type="checkbox" name="sectors" id="sectors"> 백그라운드 맵 &nbsp</label>
-                                            <br>
-                                            <label>
-                                            <input type="checkbox" name="cellalpha" id="cellalpha"> 세포투명화 ON or OFF  &nbsp</label>
-                                            <br>
-                                        <label>
-                                            <input type="checkbox" name="borders" id="borders"> MAP 테두리 ON or OFF &nbsp</label>
-                                        <br>                                       
-                                        <label>
-                                            <input type="checkbox" name="food" id="food"> 먹이 보이기 On or OFF &nbsp</label>
-                                            <br>
-                                        <label>
-                                            <input type="checkbox" name="name" id="name"> 이름 보이기 ON or OFF &nbsp</label>
-                                        <br>
-                                        <label>
-                                            <input type="checkbox" name="mass" id="mass"> 메스 보이기 ON or OFF &nbsp</label>
-                                            <br>
-                                        <label>
-                                            <input type="checkbox" name="chathi" id="chathi"> 채팅 보이기 ON or OFF &nbsp</label>
-        
-                                            <br>                                       
-                                        <label>
-                                        <br>
-                                        <br>    
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
+</div>
+</div>
+</div>
+</div>
+<br>
 <div role="tabpanel" class="tab-pane fade" id="theming">
 <label>백그라운드 맵 색깔 </label>
 <br>
@@ -157,13 +153,6 @@
 <div class="form-group">
 <button type="submit" id="playBtn" onclick="setNick(document.getElementById('nick').value); return false;" class="shake-constant btn playButton btn-primary btn-needs-server">Play</button> 
 <button class="btn btn-warning watchButton btn-needs-server" id="watchBtn" onclick="watch();return false">관전</button>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 <br clear="both">
 <br>
 </div>
