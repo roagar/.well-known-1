@@ -19,33 +19,54 @@
 <canvas id="canvas"></canvas>
 <link href="assets/css/main.css" rel="stylesheet" type="text/css">
 <body>
+<html>
+<head>
+<title>자바스크립트: 리얼타임 시계</title>
 <script type="text/javascript">
-<!--
-    setInterval("dpTime()",1000);
-    function dpTime(){
-       var now = new Date();
-        hours = now.getHours();
-        minutes = now.getMinutes();
-        seconds = now.getSeconds();
- 
-        if (hours > 12){
-            hours -= 12;
-        ampm = "오후 ";
-        }else{
-            ampm = "오전 ";
-        }
-        if (hours < 10){
-            hours = "0" + hours;
-        }
-        if (minutes < 10){
-            minutes = "0" + minutes;
-        }
-        if (seconds < 10){
-            seconds = "0" + seconds;
-        }
-document.getElementById("dpTime").innerHTML = ampm + hours + ":" + minutes + ":" + seconds;
-    }
-//-->
+
+function realtimeClock() {
+  document.rtcForm.rtcInput.value = getTimeStamp();
+  setTimeout("realtimeClock()", 1000);
+}
+
+
+function getTimeStamp() { // 24시간제
+  var d = new Date();
+
+  var s =
+    leadingZeros(d.getFullYear(), 4) + '-' +
+    leadingZeros(d.getMonth() + 1, 2) + '-' +
+    leadingZeros(d.getDate(), 2) + ' ' +
+
+    leadingZeros(d.getHours(), 2) + ':' +
+    leadingZeros(d.getMinutes(), 2) + ':' +
+    leadingZeros(d.getSeconds(), 2);
+
+  return s;
+}
+
+
+function leadingZeros(n, digits) {
+  var zero = '';
+  n = n.toString();
+
+  if (n.length < digits) {
+    for (i = 0; i < digits - n.length; i++)
+      zero += '0';
+  }
+  return zero + n;
+}
+
 </script>
- 
-<span id="dpTime">오후 09:47:31</span>
+</head>
+
+
+<body onload="realtimeClock()">
+
+<form name="rtcForm">
+<input type="text" name="rtcInput" size="20" readonly="readonly" />
+</form>
+
+
+</body>
+</html>
