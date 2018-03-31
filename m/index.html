@@ -1,0 +1,174 @@
+<!DOCTYPE php>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="안녕하세요 agario 본섭화 서버 윈클 전용서버라고 합니다.">
+    <meta name="keywords"
+          content="agar.io 본섭화서버, agar.io, 전용서버, 윈클 전용서버, 본섭화 서버">
+    <meta name="robots" content="index, follow">
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="630"/>
+    <meta property="og:type" content="website"/>
+    <title>Aqua.Party 무한분열</title>
+    <link id="favicon" rel="icon" type="image/png" href="favicon-32x32.png"/>
+    <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script src="http://code.jquery.com/jquery-3.1.0.js"   integrity="sha256-slogkvB1K3VOkzAI8QITxV3VzpOnkeNVsKvtkYLMjfk="   crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/store.js/1.3.17/store+json2.min.js"></script>
+	<script src="j/Vector2.js"></script>
+    <script src="main_out.js"></script>
+    <script src="j/m.js"></script>
+    <link href='c/m.css' rel='stylesheet' type='text/css'>
+    <link href='c/min.css' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<div id="fb-root"></div>
+<div id="overlays"
+     style="display:none; position: absolute; left: 0; right: 0; top: 0; bottom: 0; background-color: rgba(0,0,0,0.5); z-index: 200;">
+    <div id="helloDialog">
+        <form role="form">
+            <div class="form-group">
+                <div style="float: left; margin-left: 20px;"><h2><span style="font-size: 25pt;">&nbsp; &nbsp;&nbsp; &nbsp;Aqua.Party 일반 서버</span>
+
+</h2></div>
+                <div class="fb-like" style="float: right; margin-top: 30px;"
+                     data-show-faces="true" data-share="true"></div>
+                <br clear="both"/>
+            </div>
+            <div class="form-group">
+                <input id="nick" class="form-control" placeholder="Nick" maxlength="15"/>
+                <select id="gamemode" class="form-control" onchange="setGameMode($(this).val());" required>
+                    <option selected value="">FFA</option>
+                </select>
+                <br clear="both"/>
+            </div>
+            <div id="locationUnknown">
+                <select id="region" class="form-control" onchange="setRegion($('#region').val());" required>
+                    <option selected disabled value=""> -서버선택-</option>
+                    <option value="127.0.0.1:1680">korea</option>
+                </select>
+            </div>
+            <div>
+                <div class="text-muted region-message KOREA">
+
+                </div>
+            </div>
+            <div class="form-group">
+                <div>
+.
+                        <button type="button" class="btn btn-success btn-wincafe" onclick="window.open('http://cafe.naver.com/aquaparty', '_blank'); ">대표 Cafe Go/button>
+                        <button type="button" class="btn btn-success btn-wincafe" onclick="window.open('http://agar-network.com/#4N1K3', '_blank'); ">ZT Tool 서버</button>
+            
+                    <p></p>
+                </div>
+
+                <button disabled type="submit" id="playBtn"
+                        onclick="setNick(document.getElementById('nick').value); return false;"
+                        class="btn btn-play btn-primary btn-needs-server">Play
+                </button>
+                <button onclick="$('#settings, #instructions').toggle();return false;"
+                        class="btn btn-info btn-settings"><i class="glyphicon glyphicon-cog"></i></button>
+                <br clear="both"/>
+            </div>
+            <div id="settings" class="checkbox" style="display:none;">
+                <div class="form-group" id="mainform">
+                    <div id="locationKnown"></div>
+                    <button id="spectateBtn" onclick="spectate(); return false;" disabled
+                            class="btn btn-warning btn-spectate btn-needs-server">관전
+                     </button>
+                    <br clear="both"/>
+                </div>
+                <div style="margin: 6px;">
+                        <label>
+                            <input id="option_1" type="checkbox" onchange="setSkins(!$(this).is(':checked'));localStorage['AquaParty plus_option_1']=$(this).is(':checked')?'1':'0';">스킨끄기</label>
+                        <label>
+                            <input id="option_2" type="checkbox" onchange="setNames(!$(this).is(':checked'));localStorage['AquaParty_option_2']=$(this).is(':checked')?'1':'0';">이름끄기</label>
+                        <label>
+                            <input id="option_3" type="checkbox" onchange="setDarkTheme($(this).is(':checked'));localStorage['AquaParty_option_3']=$(this).is(':checked')?'1':'0';">다크테마</label>
+                        <label>
+                            <input id="option_4" type="checkbox" onchange="setColors($(this).is(':checked'));localStorage['AquaParty_option_4']=$(this).is(':checked')?'1':'0';">색끄기</label>
+                        <label>
+                            <input id="option_5" type="checkbox" onchange="setShowMass($(this).is(':checked'));localStorage['AquaPartys_option_5']=$(this).is(':checked')?'1':'0';">매스보이기</label>
+                        <label>
+                            <input id="option_6" type="checkbox" onchange="setHideChat($(this).is(':checked'));localStorage['AquaParty_option_6']=$(this).is(':checked')?'1':'0';">채팅끄기</label>
+                        <label>
+                            <input id="option_7" type="checkbox" onchange="setSmooth($(this).is(':checked'));localStorage['AquaPartyoption_7']=$(this).is(':checked')?'1':'0';">부드러운 렌더링</label>                              
+                            
+                
+                </div>
+                <script>
+	setSmooth(true);
+	setShowMass(true);
+</script>
+            </div>
+        </form>
+        <div id="instructions">
+            <hr/>
+            <center><span class="text-muted">
+
+</span></center>
+        </div>
+        <hr/>
+        <center>
+w : 매크로 t : 16분열</br>
+
+            <center>
+    <span class="text-muted">
+       </span>
+            </center>
+            <div>
+            </div>
+            <small class="text-muted text-center"></small>
+        </center>
+        <hr style="margin-bottom: 20x; "/>
+        <div style="margin-bottom: 20px; line-height: 32px; margin-left: 20px; height: 32px;">
+            </center>
+        </div>
+
+    </div>
+</div>
+<div id="connecting"
+     style="display:none;position: absolute; left: 0; right: 0; top: 0; bottom: 0; z-index: 100; background-color: rgba(0,0,0,0.5);">
+    <div class="ui icon message red" style="width: 350px; background-color: #FFFFFF; margin: 100px auto; padding: 15px 15px 15px 15px;">
+      <i class="notched circle loading icon"></i>
+      <div class="content">
+        <div class="header">
+          접속 시도중....
+        </div>
+        <p>서버와 연결 중 입니다.</p>
+      </div>
+    </div>
+</div>
+</div>
+<canvas id="canvas" width="800" height="600"></canvas>
+<input type="text" id="chat_textbox" maxlength="200" placeholder="CHat Go"/>
+
+<div style="font-family:'Ubuntu'">&nbsp;</div>
+
+<script type="text/javascript">
+    $('input').keypress(function(e) {
+        if (e.which == '13') {
+            e.preventDefault();
+            if (!isSpectating)
+                setNick(document.getElementById('nick').value);
+        }
+    });
+</script>
+
+
+
+</body>
+
+<script type="text/javascript">
+    $('input').keypress(function(e) {
+        if (e.which == '13') {
+            e.preventDefault();
+            setNick(document.getElementById('nick').value);
+        }
+    });
+</script>
+
+
+</html>
