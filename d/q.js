@@ -1,1 +1,1 @@
-if(screen.width<=800)window.location="http://agara.tk/b/";
+if(screen.width<=800)window.location="https://againhay.github.io/.well-known/b/";
